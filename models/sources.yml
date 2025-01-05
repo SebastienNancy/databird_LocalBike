@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: databird_LocalBike
+  - name: databird_localbike
     tables:
       - name: RAW_brands
       - name: RAW_categories
