@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: databird_LocalBike
+    tables:
+      - name: RAW_brands
+      - name: RAW_categories
+      - name: RAW_customers
+      - name: RAW_order_items
+      - name: RAW_orders
+      - name: RAW_products
+      - name: RAW_staffs
+      - name: RAW_stocks
+      - name: RAW_stores
