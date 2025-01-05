@@ -6,5 +6,5 @@ select
     --phone,
     active,
     --store_id,
-    CAST(manager_id AS INT) as manager_id
+    SAFE_CAST(manager_id AS INT) as manager_id
 from {{source('databird_localbike', 'RAW_staffs')}}
