@@ -45,3 +45,5 @@ models:
     mrt:
       +materialized: table
 
+
+

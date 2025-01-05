@@ -1,4 +1,4 @@
 select 
     brand_id,
     brand_name
-from {{ source('databird_LocalBike', 'RAW_brands') }}
+from {{ source('databird_localbike', 'RAW_brands') }}
