@@ -1,5 +1,4 @@
 select  
 manager_id,
-manager_first_name,
-manager_last_name
+  UPPER(manager_first_name) || ' ' || manager_last_name as Manager
 FROM {{ ref('int_managers') }}
