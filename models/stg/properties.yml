@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: stg_brands
+    columns:
+      - name: brand_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_categories
+    columns:
+      - name: category_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    columns:
+      - name: order_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign Key to stg_customers"  
+        tests:
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: store_id
+        description: "Foreign Key to stg_stores"
+        tests:
+          - relationships:
+              to: ref('stg_stores')
+              field: store_id
+      - name: staff_id
+        description: "Foreign Key to stg_staffs"
+        tests:
+          - relationships:
+              to: ref('stg_staffs') 
+              field: staff_id
+
+  - name: stg_order_items   
+    columns:
+      - name: order_id
+        description: "Foreign Key to stg_orders"
+        tests:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: product_id
+        description: "Foreign Key to stg_products"
+        tests:
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+
+  - name: stg_products
+    columns:
+      - name: product_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: category_id
+        description: "Foreign Key to stg_categories"
+        tests:
+          - relationships:
+              to: ref('stg_categories')
+              field: category_id
+      - name: brand_id
+        description: "Foreign Key to stg_brands"
+        tests:
+          - relationships:
+              to: ref('stg_brands')
+              field: brand_id
+
+  - name: stg_staffs
+    columns:
+      - name: staff_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_stocks
+    columns:
+      - name: product_id
+        description: "Foreign Key to stg_products"
+        tests:
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+      - name: store_id
+        description: "Foreign Key to stg_stores"
+        tests:
+          - relationships:
+              to: ref('stg_stores')
+              field: store_id
+
+  - name: stg_stores
+    columns:
+      - name: store_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
