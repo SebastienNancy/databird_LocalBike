@@ -11,6 +11,7 @@ select
     required_date,
     shipped_date,
     store_id,
-    staff_id
+    staff_id,
+    order_quantity * (order_list_price * (1 - order_discount)) as amount
 from {{ref('stg_order_items')}}
 left join {{ ref('stg_orders') }} ON stg_order_items.order_id = stg_orders.order_id 
