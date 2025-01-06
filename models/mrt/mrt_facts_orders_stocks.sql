@@ -12,7 +12,8 @@
     required_date,
     shipped_date,
     store_id,
-    staff_id
+    staff_id,
+    amount
 from {{ref('int_orders')}}
 
 UNION ALL
@@ -31,5 +32,6 @@ select
     NULL as required_date,
     NULL as shipped_date,
     store_id,
-    NULL as staff_id
+    NULL as staff_id,
+    NULL as amount
 from {{ref('stg_stocks')}}
