@@ -13,7 +13,8 @@
     shipped_date,
     store_id,
     staff_id,
-    amount
+    amount,
+    NULL as stock_quanity
 from {{ref('int_orders')}}
 
 UNION ALL
@@ -33,5 +34,6 @@ select
     NULL as shipped_date,
     store_id,
     NULL as staff_id,
-    NULL as amount
+    NULL as amount,
+    stock_quanity
 from {{ref('stg_stocks')}}
